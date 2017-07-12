@@ -1,15 +1,27 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CSharp_TicTacToe
 {
     class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
+            var gameSetup = new GameSetup();
+            var gameMechanics = new GameMechanics();
+            var gameBoard = gameSetup.NewBoard;
+            var players = gameSetup.PlayerNames;
+
+            gameSetup.EnterPlayers(players);
+            gameSetup.PrintBoard(gameBoard);
+
+            foreach (var name in players)
+                Console.WriteLine(name);
+
+            Console.WriteLine();
+            Console.WriteLine(gameMechanics.WinDraw("X"));
+
+            Console.Write("\n\nPress andy key to continue");
+            Console.ReadKey();
         }
     }
 }
