@@ -18,16 +18,23 @@ namespace CSharp_TicTacToe
                 Console.WriteLine(name);
 
             var turn = 1;
+            var rnd = new Random();
+            var player = rnd.Next(1, 3);
+
             while (turn < 10)
             {
-                Console.WriteLine();
-                Console.WriteLine(gameMechanics.WinDraw("X"));
+                var marker = player == 1 ? "X" : "O";
 
-                Console.Write("\n\nPress andy key to continue");
-                Console.ReadKey();
+                Console.WriteLine();
+                gameMechanics.PlayerMove(players[player], marker);
 
                 turn += 1;
+
+                player = player == 1 ? 2 : 1;
             }
+
+            Console.Write("\n\nPress any key to continue");
+            Console.ReadKey();
         }
     }
 }

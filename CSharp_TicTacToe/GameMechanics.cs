@@ -1,10 +1,19 @@
-﻿namespace CSharp_TicTacToe
+﻿using System;
+
+namespace CSharp_TicTacToe
 {
     class GameMechanics
     {
-        public string WinDraw(string player)
+        public void PlayerMove(string player, string marker)
         {
-            return "You Win!";
+            Console.WriteLine($"Your move {player}, Marker: {marker}");
+            Console.WriteLine(WinCheck(player));
         }
+
+        private string WinCheck(string player)
+        {
+            return $"{player}: You Win!";
+        }
+
     }
 }
