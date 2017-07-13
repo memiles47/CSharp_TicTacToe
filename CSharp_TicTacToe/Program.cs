@@ -17,11 +17,17 @@ namespace CSharp_TicTacToe
             foreach (var name in players)
                 Console.WriteLine(name);
 
-            Console.WriteLine();
-            Console.WriteLine(gameMechanics.WinDraw("X"));
+            var turn = 1;
+            while (turn < 10)
+            {
+                Console.WriteLine();
+                Console.WriteLine(gameMechanics.WinDraw("X"));
 
-            Console.Write("\n\nPress andy key to continue");
-            Console.ReadKey();
+                Console.Write("\n\nPress andy key to continue");
+                Console.ReadKey();
+
+                turn += 1;
+            }
         }
     }
 }
