@@ -26,7 +26,7 @@ namespace CSharp_TicTacToe
                 var marker = player == 1 ? "X" : "O";
 
                 Console.WriteLine();
-                gameMechanics.PlayerMove(players[player], marker);
+                gameMechanics.PlayerMove(gameBoard,players[player], marker);
 
                 turn += 1;
 
