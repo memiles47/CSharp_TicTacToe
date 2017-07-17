@@ -5,7 +5,7 @@ namespace CSharp_TicTacToe
 {
     class GameMechanics
     {
-        public void PlayerMove(Dictionary<string, string> board, string player, string marker)
+        public void PlayerMove(Dictionary<string, string> board, string player, string marker, string move)
         {
             Console.WriteLine($"Your move {player}, Marker: {marker}");
             Console.WriteLine(Winner(board, player, marker));
