@@ -27,10 +27,16 @@ namespace CSharp_TicTacToe
                 //Below means 'if player == 1 then marker = 'X' else marker = 'O'
                 var marker = player == 1 ? "X" : "O";
 
+                //Turn this into a method
                 Console.Write($"Enter your move {players[player]}\n");
-                Console.Write($"Use the format 'top', 'mid' or 'low'\n" +
-                              $"followed by an '_' and 'L', 'M' or 'R': ");
-                var move = Console.ReadLine();
+                Console.Write($"Enter row 'top', 'mid' or 'low': ");
+                var inputRow = Console.ReadLine().ToLower();
+
+                Console.Write($"Enter column {players[player]}\n");
+                Console.Write($"'R', 'M' or 'L': ");
+                var inputColumn = Console.ReadLine().ToUpper();
+
+                var move = inputRow + "_" + inputColumn;
 
                 Console.WriteLine();
                 gameMechanics.PlayerMove(gameBoard,players[player], marker, move);
