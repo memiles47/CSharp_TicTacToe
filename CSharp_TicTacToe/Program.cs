@@ -23,6 +23,8 @@ namespace CSharp_TicTacToe
 
             while (turn < 10)
             {
+                //One of two ternary's to save
+                //Below means 'if player == 1 then marker = 'X' else marker = 'O'
                 var marker = player == 1 ? "X" : "O";
 
                 Console.WriteLine();
