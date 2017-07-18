@@ -9,22 +9,19 @@ namespace CSharp_TicTacToe
         {
             Console.WriteLine($"Your move {player}");
             Console.Write("Please enter Row: top, (mid)dle, (low)er: ");
-            var readline = Console.ReadLine() ?? "";
-            var rowInput = readline.ToLower();
+            var rowInput = Console.ReadLine() ?? "";
+            rowInput = rowInput.ToLower();
 
             if (rowInput != "" && (rowInput == "top" || rowInput == "mid" || rowInput == "low"))
             {
                 Console.Write("\nPlease enter Column: (L)eft, (M)iddle, (R)ight: ");
-                readline = Console.ReadLine()?? "";
-                var colInput = readline.ToUpper();
+                var colInput = Console.ReadLine()?? "";
+                colInput = colInput.ToUpper();
 
-                if (colInput != "" && (colInput == "L" || colInput == "M" || colInput == "R"))
-                    return rowInput + "_" + colInput[0];
-                else
-                    return "";
+                if (colInput != "" && colInput.Length == 1 && (colInput == "L" || colInput == "M" || colInput == "R"))
+                    return rowInput + "_" + colInput;
             }
-            else
-                return "";
+            return "";
         }
 
         public bool SetMarker(Dictionary<string, string> board, string playerMove, string marker)
