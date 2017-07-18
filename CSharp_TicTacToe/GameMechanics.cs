@@ -3,29 +3,52 @@ using System.Collections.Generic;
 
 namespace CSharp_TicTacToe
 {
-    class GameMechanics
+    public class GameMechanics
     {
-        public void PlayerMove(Dictionary<string, string> board, string player, string marker, string move)
+        public string PlayerMove(string player)
         {
-            Console.WriteLine($"Your move {player}, Marker: {marker}");
-            Console.WriteLine(Winner(board, player, marker));
+            Console.WriteLine($"Your move {player}");
+            Console.Write("Please enter Row: top, (mid)dle, (low)er: ");
+            var readline = Console.ReadLine() ?? "";
+            var rowInput = readline.ToLower();
+
+            if (rowInput != "" && (rowInput == "top" || rowInput == "mid" || rowInput == "low"))
+            {
+                Console.Write("\nPlease enter Column: (L)eft, (M)iddle, (R)ight: ");
+                readline = Console.ReadLine()?? "";
+                var colInput = readline.ToUpper();
+
+                if (colInput != "" && (colInput == "L" || colInput == "M" || colInput == "R"))
+                    return rowInput + "_" + colInput[0];
+                else
+                    return "";
+            }
+            else
+                return "";
         }
 
-        private string Winner(Dictionary<string, string> chkBoard, string player, string marker)
+        public bool SetMarker(Dictionary<string, string> board, string playerMove, string marker)
         {
-            if (chkBoard["top_L"] == marker && chkBoard["top_M"] == marker && chkBoard["top_R"] == marker ||
-                chkBoard["mid_L"] == marker && chkBoard["mid_M"] == marker && chkBoard["mid_R"] == marker ||
-                chkBoard["low_L"] == marker && chkBoard["low_M"] == marker && chkBoard["low_R"] == marker ||
-                chkBoard["top_L"] == marker && chkBoard["mid_L"] == marker && chkBoard["low_L"] == marker ||
-                chkBoard["top_M"] == marker && chkBoard["mid_M"] == marker && chkBoard["low_M"] == marker ||
-                chkBoard["top_R"] == marker && chkBoard["mid_R"] == marker && chkBoard["low_R"] == marker ||
-                chkBoard["top_L"] == marker && chkBoard["mid_M"] == marker && chkBoard["low_R"] == marker ||
-                chkBoard["low_L"] == marker && chkBoard["mid_M"] == marker && chkBoard["top_R"] == marker)
+            if (board[playerMove] != " ")
+                return false;
+            board[playerMove] = marker;
+            return true;
+        }
+
+        public bool WinCheck(Dictionary<string, string> board, string marker)
+        {
+            if (board["top_L"] == marker && board["top_M"] == marker && board["top_R"] == marker ||
+                board["mid_L"] == marker && board["mid_M"] == marker && board["mid_R"] == marker ||
+                board["low_L"] == marker && board["low_M"] == marker && board["low_R"] == marker ||
+                board["top_L"] == marker && board["mid_L"] == marker && board["low_L"] == marker ||
+                board["top_M"] == marker && board["mid_M"] == marker && board["low_M"] == marker ||
+                board["top_R"] == marker && board["mid_R"] == marker && board["low_R"] == marker ||
+                board["top_L"] == marker && board["mid_M"] == marker && board["low_R"] == marker ||
+                board["low_L"] == marker && board["mid_M"] == marker && board["top_R"] == marker)
             {
-                return $"{player}: You Win!";
+                return true;
             }
-            
-            return "";
+            return false;
         }
     }
 }

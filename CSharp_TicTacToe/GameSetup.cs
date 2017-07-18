@@ -7,7 +7,7 @@ namespace CSharp_TicTacToe
     {
         public readonly Dictionary<string, string> NewBoard = new Dictionary<string, string>
         {
-            {"top_L", "X"}, {"top_M", "X"}, {"top_R", "X"},
+            {"top_L", " "}, {"top_M", " "}, {"top_R", " "},
             {"mid_L", " "}, {"mid_M", " "}, {"mid_R", " "},
             {"low_L", " "}, {"low_M", " "}, {"low_R", " "}
         };
