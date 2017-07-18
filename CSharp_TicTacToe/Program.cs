@@ -26,19 +26,22 @@ namespace CSharp_TicTacToe
                 var marker = player == 1 ? "X" : "O";
 
                 //Turn this into a method
-                //Do null check
-                Console.Write($"Enter your move {players[player]}\n");
-                Console.Write($"Enter row 'top', 'mid' or 'low': ");
-                var inputRow = Console.ReadLine().ToLower();
+                Console.Write($"Begin your move {players[player]}\n");
+                Console.Write("Enter row 'top', 'mid' or 'low': ");
+                var readLine = Console.ReadLine();
+                if (readLine != null)
+                {
+                    var inputRow = readLine.ToLower();
 
-                Console.Write($"Enter column {players[player]}\n");
-                Console.Write($"'R', 'M' or 'L': ");
-                var inputColumn = Console.ReadLine().ToUpper();
+                    Console.Write($"Enter column {players[player]}\n");
+                    Console.Write("(R)ighe, (M)id or (L)eft: ");
+                    var inputColumn = readLine.ToUpper();
 
-                var move = inputRow + "_" + inputColumn;
+                    var move = inputRow + "_" + inputColumn;
 
-                Console.WriteLine();
-                gameMechanics.PlayerMove(gameBoard,players[player], marker, move);
+                    Console.WriteLine();
+                    gameMechanics.PlayerMove(gameBoard,players[player], marker, move);
+                }
 
                 turn += 1;
 
