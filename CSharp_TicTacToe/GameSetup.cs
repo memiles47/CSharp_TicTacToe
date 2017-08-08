@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace CSharp_TicTacToe
 {
-    class GameSetup
+    internal class GameSetup
     {
         public readonly Dictionary<string, string> NewBoard = new Dictionary<string, string>
         {
@@ -14,7 +14,7 @@ namespace CSharp_TicTacToe
 
         public readonly Dictionary<int, string> PlayerNames = new Dictionary<int, string> { { 1, "" }, { 2, "" } };
 
-        public void EnterPlayers(Dictionary<int, string> names)
+        public static void EnterPlayers(Dictionary<int, string> names)
         {
             for (var i = 1; i < 3; i++)
             {
@@ -26,7 +26,7 @@ namespace CSharp_TicTacToe
             Console.Clear();
         }
 
-        public void PrintBoard(Dictionary<string, string> board)
+        public static void PrintBoard(Dictionary<string, string> board)
         {
             Console.WriteLine("-------------");
             Console.WriteLine("| {0} | {1} | {2} |", board["top_L"], board["top_M"], board["top_R"]);

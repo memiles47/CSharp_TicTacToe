@@ -3,9 +3,9 @@ using System.Collections.Generic;
 
 namespace CSharp_TicTacToe
 {
-    public class GameMechanics
+    public static class GameMechanics
     {
-        public string PlayerMove(string player)
+        public static string PlayerMove(string player)
         {
             Console.WriteLine($"Your move {player}");
             Console.Write("Please enter Row: top, (mid)dle, (low)er: ");
@@ -23,7 +23,7 @@ namespace CSharp_TicTacToe
             return "";
         }
 
-        public bool SetMarker(Dictionary<string, string> board, string playerMove, string marker)
+        public static bool SetMarker(Dictionary<string, string> board, string playerMove, string marker)
         {
             if (board[playerMove] != " ")
                 return false;
@@ -31,7 +31,7 @@ namespace CSharp_TicTacToe
             return true;
         }
 
-        public bool WinCheck(Dictionary<string, string> board, string marker)
+        public static bool WinCheck(Dictionary<string, string> board, string marker)
         {
             return board["top_L"] == marker && board["top_M"] == marker && board["top_R"] == marker ||
                    board["mid_L"] == marker && board["mid_M"] == marker && board["mid_R"] == marker ||
